@@ -1,8 +1,8 @@
 const  { readFileSync , writeFileSync }  =  require ( 'fs' )
 
 
-// Lire le contenu du fichier original.txt et l'assigner à txt
-const txt = readFileSync('./src.txt', 'utf-8')
+// Lire le contenu du fichier src.txt et l'assigner à txt
+const txt = readFileSync('./file.txt', 'utf-8')
 
 // verifier la cmd line
 
@@ -16,8 +16,8 @@ if (process.argv.length != 4) {
 
 
 
-// Ecrire le contenu de la variable txt dans copy.txt
-writeFileSync('./dst.txt', txt)
+// Ecrire le contenu de la variable txt dans dst.txt
+writeFileSync('./file3.txt', txt)
 
 
 let name = process.argv[2]
