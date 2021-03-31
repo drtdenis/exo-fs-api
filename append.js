@@ -12,17 +12,24 @@ Gestion de l'erreur si l'un des fichiers sources à copier n'existe pas.*/
 
 
 const fs = require('fs');
-const { readFileSync, writeFileSync } = require('fs');
 
-
-if (process.argv.length > 5) {
+// verif du nombre d'arguments
+if (process.argv.length < 3) {
   console.log('usage: node ls.js directory');
   process.exit(1);
 }
-
-if (!fs.existsSync(process.argv[2, 3, 4])) {
-  console.log(`Error: ${process.argv[2, 3, 4]} does not exist`);
+// verif si le chemin existe
+if (!fs.existsSync(process.argv[2])) {
+  console.log(`Error: ${process.argv[2]} does not exist`);
   process.exit(1);
 }
-const txt = process.argv[process.argv[2, 3, 4]];
-writeFileSync('./dst2.txt', txt)
+
+                  // correction Sarah B
+
+let Text = '';
+//length -1 pour select le dernier de la liste
+for (let i = 2; i < process.argv.length - 1; ++i) {
+  Text += fs.readFileSync(process.argv[i], 'utf-8') + '\n';
+}
+const last = process.argv[process.argv.length - 1];
+fs.writeFileSync(last, Text);
